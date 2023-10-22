@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mouthful Letters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="recipe-container" id="recipe1">
+        <img class="print-container" src="img/recipe1.png">
+        <button onclick="printImg('img/recipe1.png')" class="printButton">print</button>
+        <button id="close1" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe2">
+        <img class="print-container" src="img/recipe2.png">
+        <button onclick="printImg('img/recipe2.png')" class="printButton">print</button>
+        <button id="close2" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe3">
+        <img class="print-container" src="img/recipe3.png">
+        <button onclick="printImg('img/recipe3.png')" class="printButton">print</button>
+        <button id="close3" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe4">
+        <img class="print-container" src="img/recipe4.png">
+        <button onclick="printImg('img/recipe4.png')" class="printButton">print</button>
+        <button id="close4" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe5">
+        <img class="print-container" src="img/recipe5.png">
+        <button onclick="printImg('img/recipe5.png')" class="printButton">print</button>
+        <button id="close5" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe6">
+        <img class="print-container" src="img/recipe6.png">
+        <button onclick="printImg('img/recipe6.png')" class="printButton">print</button>
+        <button id="close6" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe7">
+        <img class="print-container" src="img/recipe7.png">
+        <button onclick="printImg('img/recipe7.png')" class="printButton">print</button>
+        <button id="close7" class="close-button">close</button>
+    </div>
+    <div class="recipe-container" id="recipe8">
+        <img class="print-container" src="img/recipe8.png">
+        <button onclick="printImg('img/recipe8.png')" class="printButton">print</button>
+        <button id="close8" class="close-button">close</button>
+    </div>
+    <a href="about.html">
+        <div class="title">
+            i
+        </div>
+    </a>
+    <div class="box">
+        <div>
+            <span id="span1"></span>
+            <span id="span2"></span>
+            <span id="span3"></span>
+            <span id="span4"></span>
+            <span id="span5"></span>
+            <span id="span6"></span>
+            <span id="span7"></span>
+            <span id="span8"></span>
+        </div>
+    </div>
+    <script>
+        // Get all elements with the "close-button" class
+        const closeButtonElements = document.querySelectorAll('.close-button');
+
+        // Add click event handlers to open and close the recipes
+        for (let i = 1; i <= 8; i++) {
+            const spanElement = document.getElementById(`span${i}`);
+            const recipeElement = document.getElementById(`recipe${i}`);
+            const closeElement = document.getElementById(`close${i}`);
+
+            spanElement.addEventListener('click', function () {
+                recipeElement.style.display = 'block';
+                closeElement.style.display = 'block';
+            });
+
+            closeElement.addEventListener('click', function () {
+                recipeElement.style.display = 'none';
+            });
+        }
+
+        function printImg(url) {
+            var win = window.open('');
+            win.document.write('<img src="' + url + '" onload="window.print();window.close()" />');
+            win.focus();
+        }
+
+        // Add click event listeners to all buttons
+        var buttons = document.querySelectorAll('.printButton');
+        buttons.forEach(function (button, index) {
+            button.addEventListener('click', function () {
+                printImg('recipe' + (index + 1));
+            });
+        });
+    </script>
+</body>
+
+</html>
